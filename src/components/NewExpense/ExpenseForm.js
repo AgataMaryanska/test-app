@@ -29,7 +29,7 @@ const [enteredDate, setEnteredDate] = useState('');
         //     enteredAmount: event.taget.value,
         // })
         // setUserInput((prevState) => {
-        //     return { ...prevState, enteredTitle: event.taget.value };
+        //     return { ...prevState, enteredTitle: event.target.value };
         // })
     };
 
@@ -37,7 +37,7 @@ const [enteredDate, setEnteredDate] = useState('');
         setEnteredDate(event.target.value);
         // setUserInput({
         //     ...userInput,
-        //     enteredDate: event.taget.value,
+        //     enteredDate: event.target.value,
         // })
     };
 
@@ -46,7 +46,7 @@ const [enteredDate, setEnteredDate] = useState('');
 
         const expenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate)
         };
         props.onSaveExpenseData(expenseData);
@@ -83,6 +83,7 @@ const [enteredDate, setEnteredDate] = useState('');
             </div> 
         </div>
             <div className="new-expense__actions">
+                <button type="button" onClick={props.onCancel}>Cancel</button>
                 <button type="submit">Add Expense</button>
             </div>
         
